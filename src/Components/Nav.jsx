@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {getTopics } from '../utils/api';
+import "../Css/Nav.css"
 
 const Nav = () => {
     const [topics, setTopics ] = useState([])
@@ -12,13 +13,13 @@ const Nav = () => {
     }, [])
 
     return (
-        <section className="nav">
+        <nav className="nav">
             <ul>
                 {topics.map((topic) => {
-                    return <li key={topic.slug}>{topic.slug}</li>
+                    return <li key={topic.slug}> {topic.slug} </li>
                 })}
             </ul>
-        </section>
+        </nav>
     );
 };
 
