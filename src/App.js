@@ -11,7 +11,7 @@ function App() {
     <Header />
     <Nav />
     <Switch>
-      <Route exact path="/articles">
+      <Route exact path="/">
         <Articles />
       </Route>
       <Route exact path ="/article/:article_id">

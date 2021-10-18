@@ -1,0 +1,11 @@
+.articles {
+    background-color: chartreuse;
+}
+
+.article__div {
+    border: 2px solid black;
+    padding: 5px;
+    margin: 5px;
+    background-color: chocolate;
+    color: whitesmoke;
+}
