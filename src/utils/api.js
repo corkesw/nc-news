@@ -13,3 +13,8 @@ export const getArticles = async () => {
     const {data} = await newsApi.get('/articles')
     return data.articles
 }
+
+export const getArticle = async (article_id) => {
+    const {data} = await newsApi.get(`articles/${article_id}`)
+    return data.article
+}
