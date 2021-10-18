@@ -9,8 +9,13 @@ export const getTopics = async () => {
     return data.topics
     }
 
-export const getArticles = async () => {
-    const {data} = await newsApi.get('/articles')
+export const getArticles = async (search) => {
+    let searchTerm = "/articles"
+
+    if (search) searchTerm += `?${search}`
+    console.log(searchTerm)
+    
+    const {data} = await newsApi.get(searchTerm)
     return data.articles
 }
 
