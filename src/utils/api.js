@@ -13,7 +13,6 @@ export const getArticles = async (search) => {
     let searchTerm = "/articles"
 
     if (search) searchTerm += `?${search}`
-    console.log(searchTerm)
     
     const {data} = await newsApi.get(searchTerm)
     return data.articles
