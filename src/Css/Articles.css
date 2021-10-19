@@ -1,13 +1,17 @@
 .articles {
-    background-color: chartreuse;
+    background-color: #094074;
+    padding-top: 1px;
 }
 
 .article__div {
     border: 2px solid black;
+    border-radius: 10px;
     padding: 5px;
-    margin: 5px;
-    background-color: chocolate;
-    color: whitesmoke;
+    margin: 5px auto;
+    background-color: #fbfbfb;
+    color: black;
+    width: 85vw;
+
 }
 
 p.article--title {
@@ -22,4 +26,10 @@ p.article--details {
 
 .article--link:link {
     text-decoration: none;
+    color:#094074;
+}
+
+.article--link:visited {
+    text-decoration: none;
+    color:black;
 }
