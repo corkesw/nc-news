@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { postComments } from "../../utils/api";
+import '../../Css/Articles.css'
 
 const CommentAdd = ({user, article_id, addComment, viewComments}) => {
     
@@ -16,16 +17,16 @@ const CommentAdd = ({user, article_id, addComment, viewComments}) => {
   return (
     <>
       {addComment ? (
-        <form onSubmit={handleCommentSubmit}>
-          <label htmlFor="comment">Comment</label>
-          <input
+        <form className="comment--form" onSubmit={handleCommentSubmit}>
+          <label htmlFor="comment"></label>
+          <textarea
             value={newCommentInput}
             type="text"
             id="comment"
             name="comment"
             onChange={(e) => setNewCommentInput(e.target.value)}
           />
-          <button>submit</button>
+          <button className="comment--submit">Submit</button>
         </form>
       ) : null}
       

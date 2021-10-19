@@ -33,3 +33,19 @@ p.article--details {
     text-decoration: none;
     color:black;
 }
+
+.comment--form {
+    padding: 0px;
+    margin: 0px;
+
+}
+
+#comment {
+    word-wrap: break-word;
+        word-break: break-all;
+        height: 80px;
+        width: 83.8vw;
+        margin: auto;
+        position: relative;
+        left : 0px;
+}
