@@ -1,4 +1,8 @@
 body {
   background-color: #094074;
+}
 
+.errormessage {
+  color: red;
+  font-size: 0.7rem;
 }

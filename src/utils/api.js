@@ -23,10 +23,14 @@ export const getArticle = async (article_id) => {
     return data.article
 }
 
-export const incArticleVote = async (vote, article_id) => {
-    const {data} = await newsApi.patch(`articles/${article_id}`, {
+export const incVote = async (type, id) => {
+    const {data} = await newsApi.patch(`${type}/${id}`, {
         inc_votes: 1
     })
     return data
+}
 
+export const getComments = async (article_id) => {
+    const {data} = await newsApi.get(`articles/${article_id}/comments`)
+    return(data.comments)
 }
