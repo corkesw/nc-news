@@ -22,3 +22,11 @@ export const getArticle = async (article_id) => {
     const {data} = await newsApi.get(`articles/${article_id}`)
     return data.article
 }
+
+export const incArticleVote = async (vote, article_id) => {
+    const {data} = await newsApi.patch(`articles/${article_id}`, {
+        inc_votes: 1
+    })
+    return data
+
+}
