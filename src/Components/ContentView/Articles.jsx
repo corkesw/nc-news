@@ -7,8 +7,7 @@ import { useParams } from "react-router";
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const { search } = useParams();
-  console.log(search);
-
+  
   useEffect(() => {
     getArticles(search)
       .then((articlesFromApi) => {
@@ -21,6 +20,7 @@ const Articles = () => {
     <section className="articles">
       {articles.length ? (
         articles.map((article) => {
+          const date = new Date(article.created_at)
           return (
             <div className="article__div" key={article.article_id}>
               <Link
@@ -32,7 +32,7 @@ const Articles = () => {
                   Topic: {article.topic.toUpperCase()} Author: {article.author}{" "}
                 </p>
                 <p className="article--details">
-                  Date posted:{Date(article.created_at)}
+                  Date posted: {`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`}
                 </p>
               </Link>
             </div>

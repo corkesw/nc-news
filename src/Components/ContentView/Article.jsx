@@ -16,7 +16,9 @@ const Article = () => {
 
     return (
         <section>
-           {article.body}
+           <p>{article.title}</p>
+           <p>Topic: {article.topic.toUpperCase()} Author: {article.author}</p>
+           <p>Date posted: {`${new Date(article.created_at).getDate()}/${new Date(article.created_at).getMonth()}/${new Date(article.created_at).getFullYear()}`}</p>
         </section>
     );
 };
