@@ -9,3 +9,17 @@
     background-color: chocolate;
     color: whitesmoke;
 }
+
+p.article--title {
+    font-size: large;
+    font-weight: bold;
+}
+
+
+p.article--details {
+    font-size: small;
+}
+
+.article--link:link {
+    text-decoration: none;
+}
