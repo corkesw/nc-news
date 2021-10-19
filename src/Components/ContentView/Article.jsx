@@ -80,7 +80,7 @@ const Article = ({user}) => {
       <CommentAdd user={user} article_id={article_id} addComment={addComment} viewComments={viewComments} />
       
       
-        <Comments article_id={article_id} setViewComments={setViewComments} viewComments={viewComments}/>
+        <Comments user={user} article_id={article_id} setViewComments={setViewComments} viewComments={viewComments}/>
       
       
     </section>
