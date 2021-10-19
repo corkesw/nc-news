@@ -4,7 +4,7 @@ import { incVote } from '../../utils/api';
 
 
 
-const Comment = ({comment_id, votesPassed}) => {
+const Comment = ({comment_id, votesPassed, setViewComments}) => {
     const [votes, setVotes] = useState(votesPassed)
     const [err, setErr] = useState(null)
    
@@ -21,6 +21,7 @@ const Comment = ({comment_id, votesPassed}) => {
     return (
         <>
         <button onClick={handleClick} type="button" >Votes: {votes}</button>
+        <button onClick={() => {setViewComments(false)}}>Hide comments</button>
         {err? <p className="errormessage">{err}</p> : null}
         </>
     );
