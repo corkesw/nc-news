@@ -22,7 +22,7 @@ function App() {
         <Articles />
       </Route>
       <Route exact path ="/article/:article_id">
-        <Article />
+        <Article user={user}/>
       </Route>
     </Switch>
     </div>

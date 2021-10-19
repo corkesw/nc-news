@@ -3,13 +3,16 @@ import { useParams } from "react-router";
 import { getArticle, incVote } from "../../utils/api";
 import "../../Css/Articles.css";
 import Comments from "./Comments";
+import CommentAdd from "./CommentAdd";
 
-const Article = () => {
+const Article = ({user}) => {
   const [article, setArticle] = useState([]);
   const { article_id } = useParams();
   const [votes, setVotes] = useState();
   const [err, setErr] = useState(null);
   const [viewComments, setViewComments] = useState(false);
+  const [addCommentView, setAddCommentView] = useState(false)
+  const [addComment, setAddComment] = useState(false)
 
   useEffect(() => {
     getArticle(article_id).then((articleFromApi) => {
@@ -51,6 +54,8 @@ const Article = () => {
       <button type="button" onClick={handleVoteClick}>
         Votes: {votes}
       </button>
+      {err ? <p className="errormessage">{err}</p> : null}
+    
       {viewComments ? (
         <button type="button" onClick={handleCommentClick}>
           Hide Comments
@@ -60,10 +65,20 @@ const Article = () => {
           Comments
         </button>
       )}
-      {err ? <p className="errormessage">{err}</p> : null}
-      {viewComments ? (
-        <Comments article_id={article_id} setViewComments={setViewComments} />
-      ) : null}
+
+        {!addCommentView?
+      <button onClick={ () => {
+          setAddComment(!addComment)
+        }}>Add comment</button>
+      :
+      null}
+
+      <CommentAdd user={user} article_id={article_id} addComment={addComment} viewComments={viewComments} />
+      
+      
+        <Comments article_id={article_id} setViewComments={setViewComments} viewComments={viewComments}/>
+      
+      
     </section>
   );
 };

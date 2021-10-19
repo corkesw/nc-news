@@ -32,7 +32,16 @@ export const incVote = async (type, id) => {
 
 export const getComments = async (article_id) => {
     const {data} = await newsApi.get(`articles/${article_id}/comments`)
-    return(data.comments.sort((comm1, comm2) => {
-        return comm1.comment_id - comm2.comment_id
-    }))
+    return(data.comments.reverse())
+}
+
+export const postComments = async (newComment, user, article_id) => {
+    
+    const reqbody = {
+        username: user,
+        body: newComment
+    }
+    console.log(reqbody)
+
+    const {data} = await newsApi.post(`/articles/${article_id}/comments`, reqbody)
 }

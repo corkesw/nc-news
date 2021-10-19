@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import useVotes from '../../hooks/useVotes';
 import { incVote } from '../../utils/api';
 
 
