@@ -6,13 +6,13 @@ import Comments from "./Comments";
 import CommentAdd from "./CommentAdd";
 
 const Article = ({user}) => {
-  const [article, setArticle] = useState([]);
-  const { article_id } = useParams();
-  const [votes, setVotes] = useState();
-  const [err, setErr] = useState(null);
-  const [viewComments, setViewComments] = useState(false);
-  const [addCommentView, setAddCommentView] = useState(false)
-  const [addComment, setAddComment] = useState(false)
+  const [article, setArticle] = useState([]); // selected article
+  const { article_id } = useParams(); // selected article id
+  const [votes, setVotes] = useState(); // votes for selected article
+  const [err, setErr] = useState(null); // error state if vote fails
+  const [viewComments, setViewComments] = useState(false); // toggle between comment view and change text on comment button : Comments / Hide comments
+  const [addCommentView, setAddCommentView] = useState(false) // toggle dialogue box to add comment
+  const [addComment, setAddComment] = useState(false) 
 
   useEffect(() => {
     getArticle(article_id).then((articleFromApi) => {
@@ -69,9 +69,13 @@ const Article = ({user}) => {
         {!addCommentView?
       <button onClick={ () => {
           setAddComment(!addComment)
+          setAddCommentView(!addCommentView)
         }}>Add comment</button>
       :
-      null}
+      <button onClick={ () => {
+        setAddComment(!addComment)
+        setAddCommentView(!addCommentView)
+      }}>Cancel</button>}
 
       <CommentAdd user={user} article_id={article_id} addComment={addComment} viewComments={viewComments} />
       
