@@ -39,7 +39,7 @@ const Article = () => {
         <section className="article__div">
            <p className="article--title">{article.title}</p>
            <p class="article--details">Topic: {article.topic} Author: {article.author}</p>
-           <p className="article--details">Date posted: {`${new Date(article.created_at).getDate()}/${new Date(article.created_at).getMonth()}/${new Date(article.created_at).getFullYear()}`}</p>
+           <p className="article--details">Date posted: {`${new Date(article.created_at).getDate()}/${new Date(article.created_at).getMonth()+1}/${new Date(article.created_at).getFullYear()}`}</p>
            <p>{article.body}</p>
            <button type="button" onClick={handleVoteClick}>Votes: {votes}</button>
            <button type="button" onClick={handleCommentClick}>Comments</button>

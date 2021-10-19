@@ -32,5 +32,7 @@ export const incVote = async (type, id) => {
 
 export const getComments = async (article_id) => {
     const {data} = await newsApi.get(`articles/${article_id}/comments`)
-    return(data.comments)
+    return(data.comments.sort((comm1, comm2) => {
+        return comm1.comment_id - comm2.comment_id
+    }))
 }
