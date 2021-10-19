@@ -9,6 +9,8 @@ const Article = () => {
     useEffect( () => {
         getArticle(article_id)
         .then((articleFromApi) => {
+            const topic = articleFromApi.topic.toUpperCase()
+            articleFromApi.topic = topic
             setArticle(articleFromApi)
         })
 
@@ -17,8 +19,10 @@ const Article = () => {
     return (
         <section>
            <p>{article.title}</p>
-           <p>Topic: {article.topic.toUpperCase()} Author: {article.author}</p>
+           <p>Topic: {article.topic} Author: {article.author}</p>
            <p>Date posted: {`${new Date(article.created_at).getDate()}/${new Date(article.created_at).getMonth()}/${new Date(article.created_at).getFullYear()}`}</p>
+           <p>{article.body}</p>
+           <p>Votes: {article.votes}</p>
         </section>
     );
 };
