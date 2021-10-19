@@ -10,6 +10,7 @@ import { useState } from 'react';
 function App() {
 
   const [menuOpen, setMenuOpen] = useState(false)
+  const [user, setUser] = useState('jessjelly')
 
   return (
     <div>
