@@ -3,4 +3,17 @@ header {
     padding: 0px;
     margin: 0px;
     text-align: center;
+    position: relative;
 }
+
+.burger {
+    display: inline-block;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+}
+
+.title {
+    display: inline-block;
+}
+

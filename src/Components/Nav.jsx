@@ -11,6 +11,7 @@ const Nav = () => {
         .then((topicsFromApi) => {
             setTopics(topicsFromApi)
         })
+        // catch block!
     }, [])
 
     return (

@@ -5,13 +5,16 @@ import Article from "./Components/ContentView/Article"
 import Header from './Components/Header';
 import Nav from './Components/Nav';
 import Menu from './Components/ContentView/Menu';
+import { useState } from 'react';
 
 function App() {
 
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <div>
-    <Header />
-    <Menu />
+    <Header setMenuOpen={setMenuOpen}/>
+    <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
     <Nav />
     <Switch>
       <Route exact path={["/", "/articles/:search"]}>
