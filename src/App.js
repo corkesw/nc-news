@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
     <Header setMenuOpen={setMenuOpen}/>
-    <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+    <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} user={user} setUser={setUser}/>
     <Nav />
     <Switch>
       <Route exact path={["/", "/articles/:search"]}>

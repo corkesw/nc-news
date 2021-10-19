@@ -14,11 +14,11 @@
   }
 
   /* The navigation menu links */
-.sidenav a {
+.sidenav p {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    /* font-size: 25px;
+    color: #818181; */
     display: block;
     transition: 0.3s;
   }
@@ -32,3 +32,22 @@
     top: -30px;
     left: 20px;
   }
+
+  .logindetails {
+    margin-left: 15px;
+    color: yellow;
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+
+  .user {
+    font-weight: bold;
+    padding: 0px;
+    margin-top:0px;
+  }
+
+  .logout {
+    margin-top:10px;
+    margin-left: 15px;
+  }
+

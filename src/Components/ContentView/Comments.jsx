@@ -17,9 +17,7 @@ const Comments = ({article_id}) => {
     }, [])
 
     return (
-        comments.sort((comm1, comm2) => {
-            return comm1.comment_id - comm2.comment_id
-        }).map((comment) => {
+        comments.map((comment) => {
             return <div className="comment" key={comment.comment_id}>
                 <p>{comment.body}</p>
                 <p>by {comment.author}</p>
