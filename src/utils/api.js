@@ -9,12 +9,16 @@ export const getTopics = async () => {
     return data.topics
     }
 
-export const getArticles = async (search) => {
-    let searchTerm = "/articles"
+export const getArticles = async ({topic, sortBy}) => {
+    // let searchTerm = "/articles"
 
-    if (search) searchTerm += `?${search}`
-    
-    const {data} = await newsApi.get(searchTerm)
+    // if (topic) searchTerm += `?topic=${topic}`
+    // if (sortBy) searchTerm += ``
+    // console.log(searchTerm)
+    const sort_by = sortBy
+    console.log(sort_by, topic, '<<<<<<<<<<<<')
+    const {data} = await newsApi.get('/articles', {params:{topic, sort_by}})
+    console.log(data.articles)
     return data.articles
 }
 
