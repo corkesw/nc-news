@@ -2,11 +2,13 @@ import React from 'react';
 import "../../Css/Menu.css"
 import { useContext } from "react";
 import { UserContext } from "../../Contexts/User";
+import { Link } from 'react-router-dom';
 
 const Menu = ({menuOpen, setMenuOpen}) => {
     const {user, setUser} = useContext(UserContext)
     const handleLogout = () => {
         setUser(null)
+        localStorage.removeItem('loggedInUser')
     }
     return (
         <div className={`sidenav menuopen${menuOpen}`}>
@@ -19,11 +21,10 @@ const Menu = ({menuOpen, setMenuOpen}) => {
             <button onClick={handleLogout} className="logout">Logout</button>
             </>
             : 
-            <>
-            <button className="logout">Login</button>
-            <br />
-            <button className="logout">Sign up</button>
-            </>
+            
+            <Link to="/login"><button onClick={() => setMenuOpen(false)}className="logout">Login</button></Link>
+            
+            
             }
         
 
