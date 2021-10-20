@@ -11,8 +11,6 @@ const CommentAdd = ({ article_id, addComment, viewComments }) => {
   const [newComment, setNewComment] = useState(null);
   const [err, setErr] = useState(null);
 
-  console.log(newCommentInput, "<<<<NCI");
-
   const handleCommentSubmit = (e) => {
     e.preventDefault();
     setErr(null);
