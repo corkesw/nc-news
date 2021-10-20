@@ -7,30 +7,54 @@ import { useParams } from "react-router";
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const { topic } = useParams();
-  console.log(topic)
   const [sortBy, setSortBy] = useState(null)
   const [order, setOrder] = useState(null)
-  console.log(sortBy)
+  const [page, setPage] = useState(1)
+  const [totalArticles, setTotalArticles] = useState(null)
+
   useEffect(() => {
-    getArticles({topic, sortBy, order})
+    getArticles({topic, sortBy, order, page})
       .then((articlesFromApi) => {
-        setArticles(articlesFromApi);
+        setArticles(articlesFromApi.articles);
+        setTotalArticles(articlesFromApi.total_count)
       })
       .catch((err) => console.log(err, "<<<<<<<<<<"));
-  }, [topic, sortBy, order]);
+  }, [topic, sortBy, order, page]);
 
   return (
     <>
-    <p className="sortby">Sort by: 
-    <button type="button" onClick={ () => {setSortBy('author')}}>Author</button> 
-    <button type="button" onClick={ () => {setSortBy('created_at')}}>Date</button>
-    <button type="button" onClick={ () => {setSortBy('title')}}>Title</button>
-    <button type="button" onClick={ () => {setSortBy('topic')}}>Topic</button>
-    <button type="button" onClick={ () => {setSortBy('votes')}}>Votes</button>
-    <button type="button" onClick={ () => {setSortBy('comment_count')}}>Comment Count</button>
-    <button type="button" onClick={ () => {setOrder('asc')}}>Asc</button>
-    <button type="button" onClick={ () => {setOrder('desc')}}>Desc</button>
+    <p className="sortby">Sort : 
+    <button className ={`sortauthor ${sortBy}`} type="button" onClick={ () => {
+      setSortBy('author')
+      setPage(1)
+      }}>Author</button> 
+    <button className ={`sortcreated_at ${sortBy}`} type="button" onClick={ () => {
+      setSortBy('created_at')
+      setPage(1)
+      }}>Date</button>
+    <button className ={`sorttitle ${sortBy}`} type="button" onClick={ () => {
+      setSortBy('title')
+      setPage(1)
+      }}>Title</button>
+    {!topic ? <button className ={`sorttopic ${sortBy}`} type="button" onClick={ () => {
+      setSortBy('topic')
+      setPage(1)
+      }}>Topic</button> : null}
+    <button className ={`sortvotes ${sortBy}`} type="button" onClick={ () => {
+      setSortBy('votes')
+      setPage(1)
+      }}>Votes</button>
+    <button className ={`sortcomment_count ${sortBy}`} type="button" onClick={ () => {
+      setSortBy('comment_count')
+      setPage(1)
+      }}>Comments</button> 
+    <span className="order__span">
+    Order: 
+    {order === 'desc' ? <button className="order__button" type="button" onClick={ () => {setOrder('asc')}}>Desc</button> : null}
+    {order !== 'desc' ? <button className="order__button" type="button" onClick={ () => {setOrder('desc')}}>Asc</button> : null}
+    </span>
     </p>
+
     <section className="articles">
       {articles.length ? (
         articles.map((article) => {
@@ -50,12 +74,22 @@ const Articles = () => {
                 </p>
               </Link>
             </div>
+          
           );
         })
       ) : (
         <p>No articles found</p>
       )}
     </section>
+    {articles.length > 0 ? <p className="pagination"><button onClick={
+      () => { 
+        setPage((currPage) => currPage -1)
+      }} disabled={page <= 1}
+    >Back</button> Page {page} <button onClick={
+      () => { 
+        setPage((currPage) => currPage +1)
+      }} disabled={page*10 > totalArticles}
+      >Forward</button></p>:null}
     </>
   );
 };

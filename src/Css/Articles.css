@@ -49,3 +49,38 @@ p.article--details {
         position: relative;
         left : 0px;
 }
+
+.sortby {
+
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    width: 75vw;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    vertical-align: center;
+    align-items: center;
+    justify-content:space-between;
+
+   
+}
+
+.sortby button {
+    margin : 0px, 5px;
+    padding: 2px;
+}
+
+.order__span {
+    vertical-align: center;
+   align-items: center;
+}
+
+.sortauthor.author, .sortcreated_at.created_at, .sorttitle.title, .sorttopic.topic, .sortvotes.votes, .sortcomment_count.comment_count, .order__button {
+    background-color: greenyellow;
+}
+
+.pagination {
+    margin: 15px auto;
+    width: 50vw;
+}
