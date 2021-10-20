@@ -21,7 +21,7 @@ function App() {
     <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     <Nav />
     <Switch>
-      <Route exact path={["/", "/articles/:search"]}>
+      <Route exact path={["/", "/articles/:topic"]}>
         <Articles />
       </Route>
       <Route exact path ="/article/:article_id">
