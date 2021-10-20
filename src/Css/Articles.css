@@ -91,4 +91,8 @@ div .comment {
     width: 50vw;
 }
 
+/* Comment.jsx */
 
+.deletedtrue {
+    color:red
+}

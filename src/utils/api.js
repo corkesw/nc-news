@@ -48,3 +48,8 @@ export const getUsers = async (user) => {
     const userArray = data.users.map((user) => {return user.username})
     return userArray.includes(user)
 }
+
+export const deleteComment = async (comment_id) => {
+    console.log(comment_id)
+    await newsApi.delete(`/comments/${comment_id}`)
+}
