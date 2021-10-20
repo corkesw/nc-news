@@ -12,12 +12,12 @@ import Login from './Components/ContentView/Login';
 
 function App() {
 
+  const [user, setUser] = useState(localStorage.loggedInUser)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [user, setUser] = useState('jessjelly')
-  console.log(localStorage.loggedInUser)
-  useEffect( () => {
-    localStorage.setItem('loggedInUser', user)
-  }, [user])
+  console.log(localStorage.loggedInUser, "<<<local storage")
+  console.log(user, '<<<<< user')
+  
+
 
   return (
     <UserContext.Provider value={{user, setUser}}>

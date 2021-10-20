@@ -8,7 +8,6 @@ const Login = () => {
     const {user, setUser} = useContext(UserContext)
     const [userInput, setUserInput] = useState('jessjelly')
     const [err, setErr] = useState(null)
-    console.log(user)
     const handleLogin = (e) => {
         e.preventDefault()
         setErr(null)
@@ -16,6 +15,7 @@ const Login = () => {
         .then((res) => {
             if (res) {
                 setUser(userInput)
+                localStorage.setItem('loggedInUser', userInput)
                 setUserInput('')
             }
             else setErr('User not found')
