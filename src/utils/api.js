@@ -44,3 +44,9 @@ export const postComments = async (newComment, user, article_id) => {
 
     const {data} = await newsApi.post(`/articles/${article_id}/comments`, reqbody)
 }
+
+export const getUsers = async (user) => {
+    const {data} = await newsApi.get(`users`)
+    const userArray = data.users.map((user) => {return user.username})
+    return userArray.includes(user)
+}
