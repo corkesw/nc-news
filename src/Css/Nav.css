@@ -1,8 +1,9 @@
 nav {
-    background-color: #38aecc;
+    /* background-color: #38aecc; */
     margin: 0px;
     padding: 0px;
     text-align: center;
+    color: white
 }
 
 nav ul {
@@ -15,3 +16,19 @@ li {
     display: inline-block;
     padding: 5px;
 }
+
+.navlink {
+    color: white;
+    text-decoration: none;
+}
+
+.navlink:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.navlink:hover {
+    color: white;
+    text-decoration: none;
+}
+
