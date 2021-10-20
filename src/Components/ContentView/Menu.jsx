@@ -1,7 +1,10 @@
 import React from 'react';
 import "../../Css/Menu.css"
+import { useContext } from "react";
+import { UserContext } from "../../Contexts/User";
 
-const Menu = ({menuOpen, setMenuOpen, user, setUser}) => {
+const Menu = ({menuOpen, setMenuOpen}) => {
+    const {user, setUser} = useContext(UserContext)
     const handleLogout = () => {
         setUser(null)
     }

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { getComments } from '../../utils/api';
 import Comment from "../../Components/ContentView/Comment"
+import { useContext } from 'react';
+import { UserContext } from '../../Contexts/User';
 
-const Comments = ({article_id, setViewComments, viewComments, user}) => {
-    
+const Comments = ({article_id, setViewComments, viewComments}) => {
+    const {user} = useContext(UserContext)
     const [comments, setComments] = useState([])
     const [err, setErr] = useState(null)
     

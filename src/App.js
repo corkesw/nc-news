@@ -7,6 +7,7 @@ import Nav from './Components/Nav';
 import Menu from './Components/ContentView/Menu';
 import { useState } from 'react';
 import NoPage from './Components/ContentView/NoPage';
+import {UserContext} from "./Contexts/User.js"
 
 function App() {
 
@@ -14,22 +15,24 @@ function App() {
   const [user, setUser] = useState('jessjelly')
 
   return (
+    <UserContext.Provider value={{user, setUser}}>
     <div>
     <Header setMenuOpen={setMenuOpen}/>
-    <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} user={user} setUser={setUser}/>
+    <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     <Nav />
     <Switch>
       <Route exact path={["/", "/articles/:search"]}>
         <Articles />
       </Route>
       <Route exact path ="/article/:article_id">
-        <Article user={user}/>
+        <Article />
       </Route>
       <Route path ="/*">
         <NoPage />
       </Route>
     </Switch>
     </div>
+    </UserContext.Provider>
   );
 }
 
