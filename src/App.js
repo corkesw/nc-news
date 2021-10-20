@@ -6,6 +6,7 @@ import Header from './Components/Header';
 import Nav from './Components/Nav';
 import Menu from './Components/ContentView/Menu';
 import { useState } from 'react';
+import NoPage from './Components/ContentView/NoPage';
 
 function App() {
 
@@ -23,6 +24,9 @@ function App() {
       </Route>
       <Route exact path ="/article/:article_id">
         <Article user={user}/>
+      </Route>
+      <Route path ="/*">
+        <NoPage />
       </Route>
     </Switch>
     </div>
