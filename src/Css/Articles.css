@@ -22,6 +22,7 @@ p.article--title {
 
 p.article--details {
     font-size: small;
+    margin: 0px 0px 5px 0px;
 }
 
 .article--link:link {
@@ -34,10 +35,15 @@ p.article--details {
     color:black;
 }
 
+div .comment {
+    padding: 0px;
+    margin: 0px;
+}
+
+
 .comment--form {
     padding: 0px;
     margin: 0px;
-
 }
 
 #comment {
@@ -84,3 +90,5 @@ p.article--details {
     margin: 15px auto;
     width: 50vw;
 }
+
+
