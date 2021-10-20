@@ -9,14 +9,15 @@ const Articles = () => {
   const { topic } = useParams();
   console.log(topic)
   const [sortBy, setSortBy] = useState(null)
+  const [order, setOrder] = useState(null)
   console.log(sortBy)
   useEffect(() => {
-    getArticles({topic, sortBy})
+    getArticles({topic, sortBy, order})
       .then((articlesFromApi) => {
         setArticles(articlesFromApi);
       })
       .catch((err) => console.log(err, "<<<<<<<<<<"));
-  }, [topic, sortBy]);
+  }, [topic, sortBy, order]);
 
   return (
     <>
@@ -27,6 +28,8 @@ const Articles = () => {
     <button type="button" onClick={ () => {setSortBy('topic')}}>Topic</button>
     <button type="button" onClick={ () => {setSortBy('votes')}}>Votes</button>
     <button type="button" onClick={ () => {setSortBy('comment_count')}}>Comment Count</button>
+    <button type="button" onClick={ () => {setOrder('asc')}}>Asc</button>
+    <button type="button" onClick={ () => {setOrder('desc')}}>Desc</button>
     </p>
     <section className="articles">
       {articles.length ? (

@@ -9,9 +9,9 @@ export const getTopics = async () => {
     return data.topics
     }
 
-export const getArticles = async ({topic, sortBy}) => {
+export const getArticles = async ({topic, sortBy, order}) => {
     const sort_by = sortBy
-    const {data} = await newsApi.get('/articles', {params:{topic, sort_by}})
+    const {data} = await newsApi.get('/articles', {params:{topic, sort_by, order}})
     return data.articles
 }
 
