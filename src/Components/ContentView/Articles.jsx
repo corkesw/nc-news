@@ -3,6 +3,7 @@ import { getArticles } from "../../utils/api";
 import "../../Css/Articles.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
+import { useLoading } from "../../hooks/useLoading";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -11,14 +12,17 @@ const Articles = () => {
   const [order, setOrder] = useState(null)
   const [page, setPage] = useState(1)
   const [totalArticles, setTotalArticles] = useState(null)
+  const {on, loading, reset, toggle} = useLoading()
 
   useEffect(() => {
+    loading(true)
     getArticles({topic, sortBy, order, page})
       .then((articlesFromApi) => {
         setArticles(articlesFromApi.articles);
         setTotalArticles(articlesFromApi.total_count)
+        reset()
       })
-      .catch((err) => console.log(err, "<<<<<<<<<<"));
+      .catch((err) => console.log(err));
   }, [topic, sortBy, order, page]);
 
   return (

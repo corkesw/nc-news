@@ -10,7 +10,7 @@ export function useLoading(initialState = false) {
 
     return {
         on: loading,
-        set: setLoading,
+        loading: setLoading,
         reset: handleReset,
         toggle: handleToggle
     }
