@@ -14,11 +14,7 @@ function App() {
 
   const [user, setUser] = useState(localStorage.loggedInUser)
   const [menuOpen, setMenuOpen] = useState(false)
-  console.log(localStorage.loggedInUser, "<<<local storage")
-  console.log(user, '<<<<< user')
   
-
-
   return (
     <UserContext.Provider value={{user, setUser}}>
     <div>
