@@ -1,11 +1,25 @@
 .login {
-    /* background-color: white; */
-    width: 80vw;
+    background-color: white;
+    width: 70vw;
     margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 form {
-    width: 80vw;
+    background-color: hotpink;
+    width: auto;
     margin: auto;
 }
 
+@media screen and (min-width:600px) {
+    .login {
+        position: absolute;
+        /* margin: auto auto auto auto; */
+        /* left: calc(100vw -150px); */
+    }
+    form {
+        /* width: calc(100vw -150px);
+        position: relative; */
+    }
+    }
