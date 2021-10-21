@@ -12,7 +12,7 @@ const Articles = () => {
   const [order, setOrder] = useState(null)
   const [page, setPage] = useState(1)
   const [totalArticles, setTotalArticles] = useState(null)
-  const {on, loading, reset, toggle} = useLoading()
+  const {on, loading, reset } = useLoading()
 
   useEffect(() => {
     loading(true)
@@ -23,10 +23,19 @@ const Articles = () => {
         reset()
       })
       .catch((err) => console.log(err));
-  }, [topic, sortBy, order, page]);
+  }, [topic, sortBy, order, page, loading]); //don't add reset!
 
   return (
     <>
+    {on ? (
+        <div className="spinner articlespinner">
+          <div class="lds-facebook">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      ) : null}
     <p className="sortby">Sort : 
     <button className ={`sortauthor ${sortBy}`} type="button" onClick={ () => {
       setSortBy('author')
@@ -78,6 +87,7 @@ const Articles = () => {
                 </p>
               </Link>
             </div>
+            
           
           );
         })

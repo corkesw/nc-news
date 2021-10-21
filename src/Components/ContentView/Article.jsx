@@ -28,7 +28,7 @@ const Article = ({ user }) => {
         reset();
       })
       .catch((err) => console.log(err));
-  }, [article_id]);
+  }, [article_id, loading]); // don't add reset!
 
   const handleVoteClick = () => {
     setVotes((currVotes) => currVotes + 1);

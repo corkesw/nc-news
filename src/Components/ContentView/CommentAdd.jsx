@@ -8,14 +8,12 @@ import { UserContext } from "../../Contexts/User";
 const CommentAdd = ({ article_id, addComment, viewComments, commentChange, setCommentChange }) => {
   const { user } = useContext(UserContext);
   const [newCommentInput, setNewCommentInput] = useState("");
-  const [newComment, setNewComment] = useState(null);
   const [err, setErr] = useState(null);
   const [charactersLeftInForm, setCharactersLeftInForm] = useState(200)
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
     setErr(null);
-    setNewComment(newCommentInput);
     postComments(newCommentInput, user, article_id)
       .then(() => {
         setNewCommentInput("");

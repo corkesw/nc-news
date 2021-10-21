@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { deleteComment, incVote } from "../../utils/api";
 
 const Comment = ({
@@ -7,8 +7,7 @@ const Comment = ({
   votesPassed,
   setViewComments,
   author,
-  user,
-  commentChange
+  user
 }) => {
   const [votes, setVotes] = useState(votesPassed);
   const [err, setErr] = useState(null);

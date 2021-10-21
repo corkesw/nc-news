@@ -40,7 +40,7 @@ export const postComments = async (newComment, user, article_id) => {
         body: newComment
     }
 
-    const {data} = await newsApi.post(`/articles/${article_id}/comments`, reqbody)
+    await newsApi.post(`/articles/${article_id}/comments`, reqbody)
 }
 
 export const getUsers = async (user) => {
@@ -50,6 +50,5 @@ export const getUsers = async (user) => {
 }
 
 export const deleteComment = async (comment_id) => {
-    console.log(comment_id)
     await newsApi.delete(`/comments/${comment_id}`)
 }

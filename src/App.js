@@ -5,7 +5,7 @@ import Article from "./Components/ContentView/Article"
 import Header from './Components/Header';
 import Nav from './Components/Nav';
 import Menu from './Components/ContentView/Menu';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import NoPage from './Components/ContentView/NoPage';
 import {UserContext} from "./Contexts/User.js"
 import Login from './Components/ContentView/Login';
