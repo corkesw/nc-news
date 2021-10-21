@@ -83,7 +83,8 @@ div .comment {
 }
 
 .sortauthor.author, .sortcreated_at.created_at, .sorttitle.title, .sorttopic.topic, .sortvotes.votes, .sortcomment_count.comment_count, .order__button {
-    background-color: greenyellow;
+    background-color: rgb(9,4,170);
+    color: white;
 }
 
 .pagination {
