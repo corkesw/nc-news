@@ -14,7 +14,8 @@ const Article = ({ user }) => {
   const [viewComments, setViewComments] = useState(false); // toggle between comment view and change text on comment button : Comments / Hide comments
   const [addCommentView, setAddCommentView] = useState(false); // toggle dialogue box to add comment
   const [addComment, setAddComment] = useState(false);
-  const { on, loading, reset, toggle } = useLoading();
+  const { on, loading, reset } = useLoading();
+  const [commentChange, setCommentChange] = useState(false) // update if comment added or deleted
 
   useEffect(() => {
     loading(true);
@@ -107,6 +108,8 @@ const Article = ({ user }) => {
             article_id={article_id}
             addComment={addComment}
             viewComments={viewComments}
+            commentChange={commentChange}
+            setCommentChange={setCommentChange}
           />
 
           <Comments
@@ -114,6 +117,8 @@ const Article = ({ user }) => {
             article_id={article_id}
             setViewComments={setViewComments}
             viewComments={viewComments}
+            commentChange={commentChange}
+            setCommentChange={setCommentChange}
           />
         </section>
       )}

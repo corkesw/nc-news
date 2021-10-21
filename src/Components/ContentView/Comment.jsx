@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { deleteComment, incVote } from "../../utils/api";
 
 const Comment = ({
-  setCommentDeletion,
+  setCommentChange,
   comment_id,
   votesPassed,
   setViewComments,
   author,
   user,
+  commentChange
 }) => {
   const [votes, setVotes] = useState(votesPassed);
   const [err, setErr] = useState(null);
@@ -26,7 +27,7 @@ const Comment = ({
     deleteComment(comment_id)
       .then(() => {
         setDeletedTrue(true);
-        setCommentDeletion(true);
+        setCommentChange(true);
       })
       .catch((error) => {
         setErr("Connection error, delete unsuccessful");
