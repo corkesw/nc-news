@@ -41,7 +41,7 @@ const CommentAdd = ({ setAddComment, commentAdded, article_id, addComment, viewC
             placeholder="max 200 chars"
             value={newCommentInput}
             type="text"
-            maxlength='200'
+            maxLength='200'
             id="comment"
             name="comment"
             onChange={
@@ -55,12 +55,15 @@ const CommentAdd = ({ setAddComment, commentAdded, article_id, addComment, viewC
           <button
             onClick={(e) => {
               setNewCommentInput('')
+              setCharactersLeftInForm(200)
+
             }}
           >Clear</button>
-          <button
+          <button type="button"
               onClick={() => {
                 setAddComment(!addComment);
                 commentAdded.reset()
+                setCharactersLeftInForm(200)
               }}
             >
               Hide
