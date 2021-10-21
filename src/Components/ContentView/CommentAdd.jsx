@@ -7,13 +7,13 @@ import { UserContext } from "../../Contexts/User";
 import { useLoading } from "../../hooks/useLoading";
 
 
-const CommentAdd = ({ article_id, addComment, viewComments, commentChange, setCommentChange, setViewComments }) => {
+const CommentAdd = ({ setAddComment, commentAdded, article_id, addComment, viewComments, commentChange, setCommentChange, setViewComments }) => {
   const { user } = useContext(UserContext);
   const [newCommentInput, setNewCommentInput] = useState("");
   const [err, setErr] = useState(null);
   const [charactersLeftInForm, setCharactersLeftInForm] = useState(200)
   const addingComment = useLoading()
-  const commentAdded = useLoading()
+  
 
 
   const handleCommentSubmit = (e) => {
@@ -52,6 +52,19 @@ const CommentAdd = ({ article_id, addComment, viewComments, commentChange, setCo
               }
             }
           />
+          <button
+            onClick={(e) => {
+              setNewCommentInput('')
+            }}
+          >Clear</button>
+          <button
+              onClick={() => {
+                setAddComment(!addComment);
+                commentAdded.reset()
+              }}
+            >
+              Hide
+            </button>
           <button className="comment--submit">Submit</button>
           <span>{charactersLeftInForm} characters left</span>
         </form>

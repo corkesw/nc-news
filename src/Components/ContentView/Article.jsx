@@ -13,10 +13,10 @@ const Article = ({ user }) => {
   const [err, setErr] = useState(null); // error state if vote fails
   const [loadErr, setLoadErr] = useState(false)
   const [viewComments, setViewComments] = useState(false); // toggle between comment view and change text on comment button : Comments / Hide comments
-  const [addCommentView, setAddCommentView] = useState(false); // toggle dialogue box to add comment
-  const [addComment, setAddComment] = useState(false);
+  const [addComment, setAddComment] = useState(false); //toggle comment box open/closed
   const { on, loading, reset } = useLoading();
   const [commentChange, setCommentChange] = useState(false) // update if comment added or deleted
+  const commentAdded = useLoading()
 
   useEffect(() => {
     loading(true);
@@ -58,7 +58,7 @@ const Article = ({ user }) => {
     <>
       {on ? (
         <div className="spinner">
-          <div class="lds-facebook">
+          <div className="lds-facebook">
             <div></div>
             <div></div>
             <div></div>
@@ -67,7 +67,7 @@ const Article = ({ user }) => {
       ) : (
         <section className="article__div">
           <p className="article--title">{article.title}</p>
-          <p class="article--details">
+          <p className="article--details">
             Topic: {article.topic} Author: {article.author}
           </p>
           <p className="article--details">
@@ -92,25 +92,20 @@ const Article = ({ user }) => {
             </button>
           )}
 
-          {!addCommentView ? (
+          {!addComment ? (
             <button
               onClick={() => {
-                setAddComment(!addComment);
-                setAddCommentView(!addCommentView);
+                setAddComment(true);
+                commentAdded.reset()
               }}
             >
               Add comment
             </button>
-          ) : (
-            <button
-              onClick={() => {
-                setAddComment(!addComment);
-                setAddCommentView(!addCommentView);
-              }}
-            >
-              Cancel
-            </button>
-          )}
+          ) : null
+          
+          
+            
+          }
 
           <CommentAdd
             user={user}
@@ -120,6 +115,8 @@ const Article = ({ user }) => {
             commentChange={commentChange}
             setCommentChange={setCommentChange}
             setViewComments={setViewComments}
+            commentAdded={commentAdded}
+            setAddComment={setAddComment}
           />
 
           <Comments
