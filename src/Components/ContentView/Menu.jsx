@@ -18,7 +18,7 @@ const Menu = ({menuOpen, setMenuOpen}) => {
             <>
             <p className="logindetails">Logged in as</p>
             <p className="logindetails user">  {user}</p>
-            <button onClick={handleLogout} className="logout">Logout</button>
+            <Link to="/login"><button onClick={() =>handleLogout} onClick={() => setMenuOpen(false)}className="logout">Logout</button></Link>
             </>
             : 
             
