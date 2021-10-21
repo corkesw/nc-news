@@ -11,6 +11,7 @@ const Article = ({ user }) => {
   const { article_id } = useParams(); // selected article id
   const [votes, setVotes] = useState(); // votes for selected article
   const [err, setErr] = useState(null); // error state if vote fails
+  const [loadErr, setLoadErr] = useState(false)
   const [viewComments, setViewComments] = useState(false); // toggle between comment view and change text on comment button : Comments / Hide comments
   const [addCommentView, setAddCommentView] = useState(false); // toggle dialogue box to add comment
   const [addComment, setAddComment] = useState(false);
@@ -19,6 +20,7 @@ const Article = ({ user }) => {
 
   useEffect(() => {
     loading(true);
+    setLoadErr(false)
     getArticle(article_id)
       .then((articleFromApi) => {
         const topic = articleFromApi.topic.toUpperCase();
@@ -27,7 +29,12 @@ const Article = ({ user }) => {
         setVotes(articleFromApi.votes);
         reset();
       })
-      .catch((err) => console.log(err));
+      .catch((error) => {
+        if (error) {
+          setLoadErr('Article not found')
+          reset()
+        }
+      });
   }, [article_id, loading]); // don't add reset!
 
   const handleVoteClick = () => {
@@ -46,6 +53,8 @@ const Article = ({ user }) => {
   };
 
   return (
+    <>
+    {loadErr? <p className="errormessage errorcentre">Article not found</p> :
     <>
       {on ? (
         <div className="spinner">
@@ -124,6 +133,8 @@ const Article = ({ user }) => {
         </section>
       )}
     </>
+}
+</>
   );
 };
 
