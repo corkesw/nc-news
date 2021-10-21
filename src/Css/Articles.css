@@ -13,6 +13,10 @@
   width: 85vw;
 }
 
+.centre {
+  text-align: center;
+}
+
 p.article--title {
   font-size: large;
   font-weight: bold;

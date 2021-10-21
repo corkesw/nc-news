@@ -4,11 +4,12 @@ import Articles from './Components/ContentView/Articles';
 import Article from "./Components/ContentView/Article"
 import Header from './Components/Header';
 import Nav from './Components/Nav';
-import Menu from './Components/ContentView/Menu';
+import Menu from './Components/Menu';
 import { useState } from 'react';
 import NoPage from './Components/ContentView/NoPage';
 import {UserContext} from "./Contexts/User.js"
 import Login from './Components/ContentView/Login';
+import AddArticle from './Components/ContentView/AddArticle';
 
 function App() {
 
@@ -37,6 +38,9 @@ function App() {
       </Route>
       <Route exact path ="/login">
         <Login />
+      </Route>
+      <Route exact path="/add">
+        <AddArticle />
       </Route>
       <Route path ="/*">
         <NoPage />

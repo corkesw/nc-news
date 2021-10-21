@@ -1,7 +1,7 @@
 import React from 'react';
-import "../../Css/Menu.css"
+import "../Css/Menu.css"
 import { useContext } from "react";
-import { UserContext } from "../../Contexts/User";
+import { UserContext } from "../Contexts/User";
 import { Link } from 'react-router-dom';
 
 const Menu = ({menuOpen, setMenuOpen}) => {
@@ -18,6 +18,7 @@ const Menu = ({menuOpen, setMenuOpen}) => {
             <>
             <p className="logindetails">Logged in as</p>
             <p className="logindetails user">  {user}</p>
+            <Link to="/add"><button>Add article</button></Link>
             <Link to="/login"><button onClick={() =>handleLogout} onClick={() => setMenuOpen(false)}className="logout">Logout</button></Link>
             </>
             : 
