@@ -21,7 +21,7 @@ function App() {
     <Header setMenuOpen={setMenuOpen}/>
     <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     <Nav />
-    <Switch>
+    <Switch >
       <Route exact path={["/", "/articles/:topic"]}>
         <Articles />
       </Route>

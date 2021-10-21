@@ -84,6 +84,7 @@ const Articles = () => {
                 </p>
                 <p className="article--details">
                   Date posted: {`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`}
+                  <span className='desktop'> Votes: {article.votes} Comments: {article.comment_count}</span>
                 </p>
               </Link>
             </div>

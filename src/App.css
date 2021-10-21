@@ -89,4 +89,16 @@ body {
   }
 }
 
-/*  */
+/* media queries */
+
+@media screen and (min-width:600px) {
+  
+  }
+
+
+@media screen and (max-width:600px) {
+  .desktop {
+    display:none;
+  }
+  
+}
