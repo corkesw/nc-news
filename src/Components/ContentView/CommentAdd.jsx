@@ -29,7 +29,7 @@ const CommentAdd = ({ setAddComment, commentAdded, article_id, addComment, viewC
         commentAdded.loading(true)
         setViewComments(true)
       })
-      .catch((error) => setErr(error));
+      .catch((error) => setErr('Connection error, please try again later'));
   };
   return (
     <>
@@ -56,7 +56,8 @@ const CommentAdd = ({ setAddComment, commentAdded, article_id, addComment, viewC
             onClick={(e) => {
               setNewCommentInput('')
               setCharactersLeftInForm(200)
-
+              setErr(null)
+              addingComment.reset()
             }}
           >Clear</button>
           <button type="button"
@@ -64,6 +65,8 @@ const CommentAdd = ({ setAddComment, commentAdded, article_id, addComment, viewC
                 setAddComment(!addComment);
                 commentAdded.reset()
                 setCharactersLeftInForm(200)
+                setErr(null)
+                addingComment.reset()
               }}
             >
               Hide
@@ -75,7 +78,7 @@ const CommentAdd = ({ setAddComment, commentAdded, article_id, addComment, viewC
       {addingComment.on && !err ?<p className="uploading">Uploading comment...</p> : null}
       {commentAdded.on? <p className="success">Success!</p>: null}
       {err ? (
-        <p className="errormessage">Connection error, please try again later</p>
+        <p className="errormessage">{err}</p>
       ) : null}
     </>
   );
