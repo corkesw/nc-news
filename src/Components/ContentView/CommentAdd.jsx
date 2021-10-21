@@ -4,20 +4,30 @@ import { postComments } from "../../utils/api";
 import "../../Css/Articles.css";
 import { useContext } from "react";
 import { UserContext } from "../../Contexts/User";
+import { useLoading } from "../../hooks/useLoading";
 
-const CommentAdd = ({ article_id, addComment, viewComments, commentChange, setCommentChange }) => {
+
+const CommentAdd = ({ article_id, addComment, viewComments, commentChange, setCommentChange, setViewComments }) => {
   const { user } = useContext(UserContext);
   const [newCommentInput, setNewCommentInput] = useState("");
   const [err, setErr] = useState(null);
   const [charactersLeftInForm, setCharactersLeftInForm] = useState(200)
+  const addingComment = useLoading()
+  const commentAdded = useLoading()
+
 
   const handleCommentSubmit = (e) => {
+    commentAdded.reset()
+    addingComment.loading(true)
     e.preventDefault();
     setErr(null);
     postComments(newCommentInput, user, article_id)
       .then(() => {
         setNewCommentInput("");
         setCommentChange(true)
+        addingComment.reset()
+        commentAdded.loading(true)
+        setViewComments(true)
       })
       .catch((error) => setErr(error));
   };
@@ -38,6 +48,7 @@ const CommentAdd = ({ article_id, addComment, viewComments, commentChange, setCo
               (e) => {
                 setNewCommentInput(e.target.value)
                 setCharactersLeftInForm(200 - e.target.value.length)
+                commentAdded.reset()
               }
             }
           />
@@ -45,6 +56,8 @@ const CommentAdd = ({ article_id, addComment, viewComments, commentChange, setCo
           <span>{charactersLeftInForm} characters left</span>
         </form>
       ) : null}
+      {addingComment.on && !err ?<p className="uploading">Uploading comment...</p> : null}
+      {commentAdded.on? <p className="success">Success!</p>: null}
       {err ? (
         <p className="errormessage">Connection error, please try again later</p>
       ) : null}

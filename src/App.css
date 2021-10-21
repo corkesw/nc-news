@@ -7,9 +7,26 @@ body {
 }
 
 .errormessage {
-  color: red;
+  background-color: red;
+  color:white;
+  display:inline;
   font-size: 0.7rem;
 }
+
+.uploading {
+  background-color: orangered;
+  color: white;
+  display: inline;
+  font-size: 0.7rem;
+}
+
+.success {
+  background-color: green;
+  color: white;
+  display: inline;
+  font-size: 0.7rem;
+}
+
 /* Spinner */
 
 .spinner {

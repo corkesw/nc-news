@@ -110,6 +110,7 @@ const Article = ({ user }) => {
             viewComments={viewComments}
             commentChange={commentChange}
             setCommentChange={setCommentChange}
+            setViewComments={setViewComments}
           />
 
           <Comments
