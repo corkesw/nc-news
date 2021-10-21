@@ -13,6 +13,10 @@ body {
   font-size: 0.7rem;
 }
 
+.errormessage.comment {
+  display: inline-block;
+}
+
 .errormessage.errorcentre {
   font-size: 1rem;
   position: absolute;
