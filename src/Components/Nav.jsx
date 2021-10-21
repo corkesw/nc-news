@@ -17,6 +17,7 @@ const Nav = () => {
     return (
         <nav className="nav">
             <ul>
+                <Link to="/" className="navlink">home</Link>
                 {topics.map((topic) => {
                     return <li key={topic.slug}><Link to={`/articles/${topic.slug}`} className="navlink"> {topic.slug} </Link></li>
                 })}
