@@ -10,6 +10,7 @@ const CommentAdd = ({ article_id, addComment, viewComments, commentChange, setCo
   const [newCommentInput, setNewCommentInput] = useState("");
   const [newComment, setNewComment] = useState(null);
   const [err, setErr] = useState(null);
+  const [charactersLeftInForm, setCharactersLeftInForm] = useState(200)
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
@@ -29,14 +30,21 @@ const CommentAdd = ({ article_id, addComment, viewComments, commentChange, setCo
           <label htmlFor="comment"></label>
           <textarea
             required
+            placeholder="max 200 chars"
             value={newCommentInput}
             type="text"
             maxlength='200'
             id="comment"
             name="comment"
-            onChange={(e) => setNewCommentInput(e.target.value)}
+            onChange={
+              (e) => {
+                setNewCommentInput(e.target.value)
+                setCharactersLeftInForm(200 - e.target.value.length)
+              }
+            }
           />
           <button className="comment--submit">Submit</button>
+          <span>{charactersLeftInForm} characters left</span>
         </form>
       ) : null}
       {err ? (
