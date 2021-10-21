@@ -12,7 +12,7 @@ const Menu = ({menuOpen, setMenuOpen}) => {
     }
     return (
         <div className={`sidenav menuopen${menuOpen}`}>
-            <button className="closemenu" onClick={ () => setMenuOpen(false)}>X</button>
+            <button className="closemenu vanish" onClick={ () => setMenuOpen(false)}>X</button>
             
             {user ? 
             <>

@@ -18,3 +18,9 @@ header {
     display: inline-block;
 }
 
+@media screen and (min-width: 600px){
+
+.vanish {
+    display: none;
+  }
+}

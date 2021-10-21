@@ -17,11 +17,18 @@ function App() {
   
   return (
     <UserContext.Provider value={{user, setUser}}>
-    <div>
+    <div className="applayout">
+      <div className="appheader" >
     <Header setMenuOpen={setMenuOpen}/>
+      </div>
+      <div className="appmenu">
     <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-    <Nav />
-    <Switch >
+    </div>
+    <div className="appnav" >
+    <Nav/>
+    </div>
+    <div className="appmain">
+    <Switch>
       <Route exact path={["/", "/articles/:topic"]}>
         <Articles />
       </Route>
@@ -35,6 +42,7 @@ function App() {
         <NoPage />
       </Route>
     </Switch>
+    </div>
     </div>
     </UserContext.Provider>
   );
