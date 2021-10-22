@@ -14,7 +14,6 @@ const Articles = () => {
   const {on, loading, reset } = useLoading()
   const [page, setPage] = useState(1)
   
-  console.log(page)
   useEffect(() => {
 
     loading(true)
