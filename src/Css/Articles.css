@@ -91,7 +91,7 @@ div .comment {
   }
 
   .sortby button {
-    padding: 5px;
+    padding: 2px;
   }
 
   .order__span {
@@ -113,6 +113,12 @@ div .comment {
 .pagination {
   margin: 15px auto;
   width: 50vw;
+  color: white;
+}
+
+.pagination button {
+  margin: 0px, 5px;
+  padding: 2px;
 }
 
 
