@@ -59,7 +59,7 @@ const Comment = ({
           Delete
         </button>
       ) : null}
-      {err ? <p className="uploading">{err}</p> : null}
+      {err ? <span><br /><p className="errormessage">{err}</p></span> : null}
       {deletedTrue ? <p>Deleting...</p> : null}
     </div>
   );

@@ -103,7 +103,9 @@ const Article = ({ user }) => {
                   Add comment
                 </button>
               ) : null}
-              {err ? <p className="errormessage comment">{err}</p> : null}
+              {err ? <span><br />
+                <p className="errormessage comment">{err}</p>
+              </span> : null}
               <CommentAdd
                 user={user}
                 article_id={article_id}

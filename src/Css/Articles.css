@@ -65,6 +65,10 @@ div .comment {
   position: relative;
   left: 0px;
 }
+
+.charsleft {
+  margin-left: 5px;
+}
 .charsleft.amber{
   font-size: 0.7rem;
   background-color: orangered;
