@@ -8,8 +8,7 @@
 @media screen and (min-width:600px) {
     .login {
         position: absolute;
-        /* margin: auto auto auto auto; */
-        /* left: calc(100vw -150px); */
+       
     }
     
 }
