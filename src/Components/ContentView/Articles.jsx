@@ -78,8 +78,9 @@ const Articles = () => {
               <Link
                 className="article--link"
                 to={`/article/${article.article_id}`}
+                key={article.article_id}
               >
-            <div className="article__div" key={article.article_id}>
+            <div className="article__div">
                 <p className="article--title">{article.title}</p>
                 <p className="article--details">
                   Topic: {article.topic.toUpperCase()} Author: {article.author}{" "}

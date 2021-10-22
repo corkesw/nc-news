@@ -19,7 +19,7 @@ const Nav = () => {
             <ul role='list'>
                 <Link to="/" className="navlink">home</Link>
                 {topics.map((topic) => {
-                    return <Link to={`/articles/${topic.slug}`} className="navlink"><li role="listitem" className="navlink--item" key={topic.slug}> {topic.slug} </li></Link>
+                    return <Link to={`/articles/${topic.slug}`} className="navlink" key={topic.slug}><li role="listitem" className="navlink--item" > {topic.slug} </li></Link>
                 })}
             </ul>
         </nav>

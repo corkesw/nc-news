@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const Menu = ({ menuOpen, setMenuOpen }) => {
   const { user, setUser } = useContext(UserContext);
   const handleLogout = () => {
-    console.log("in handle logout");
     setUser(null);
     localStorage.removeItem("loggedInUser");
   };

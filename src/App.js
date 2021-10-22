@@ -20,7 +20,7 @@ function App() {
     <UserContext.Provider value={{user, setUser}}>
     <div className="applayout">
       <div className="appheader" >
-    <Header setMenuOpen={setMenuOpen}/>
+    <Header setMenuOpen={setMenuOpen} menuOpen={menuOpen}/>
       </div>
       <div className="appmenu">
     <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
