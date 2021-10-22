@@ -183,7 +183,7 @@ button:hover {
 	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
 	background-color:#0688fa;
 }
-button:active {
+/* button:active {
 	position:relative;
 	top:1px;
-}
+} */
