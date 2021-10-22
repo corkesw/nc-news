@@ -65,6 +65,22 @@ div .comment {
   position: relative;
   left: 0px;
 }
+.charsleft.amber{
+  font-size: 0.7rem;
+  background-color: orangered;
+  color:white;
+}
+
+.charsleft.green{
+  font-size: 0.7rem;
+}
+
+
+.charsleft.red{
+  font-size: 0.7rem;
+  background-color: red;
+  color:white;
+}
 
 .sortby {
   color: white;

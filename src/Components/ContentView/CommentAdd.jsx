@@ -72,7 +72,11 @@ const CommentAdd = ({ setAddComment, commentAdded, article_id, addComment, viewC
               Hide
             </button>
           <button className="comment--submit">Submit</button>
-          <span>{charactersLeftInForm} characters left</span>
+          <span>
+          {charactersLeftInForm <= 25 ? <span className="charsleft red">{charactersLeftInForm} characters left</span> : null}
+          {charactersLeftInForm <= 50 && charactersLeftInForm >25 ? <span className="charsleft amber">{charactersLeftInForm} characters left</span> : null}
+          {charactersLeftInForm < 200 && charactersLeftInForm >50 ? <span className="charsleft green">{charactersLeftInForm} characters left</span> : null}
+          </span>
         </form>
       ) : null}
       {addingComment.on && !err ?<p className="uploading">Uploading comment...</p> : null}
