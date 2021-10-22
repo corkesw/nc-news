@@ -120,3 +120,7 @@ div .comment {
 .deletedtrue {
   color: red;
 }
+
+.add__container {
+  display: grid;
+}
