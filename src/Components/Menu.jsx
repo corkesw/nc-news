@@ -5,6 +5,7 @@ import { UserContext } from "../Contexts/User";
 import { Link } from "react-router-dom";
 
 const Menu = ({ menuOpen, setMenuOpen }) => {
+    console.log('menu open is ', menuOpen)
   const { user, setUser } = useContext(UserContext);
   const handleLogout = () => {
     setUser(null);

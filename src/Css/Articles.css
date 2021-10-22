@@ -135,7 +135,9 @@ div .comment {
 .sortvotes.votes,
 .sortcomment_count.comment_count,
 .order__button {
-  background-color: rgb(9, 4, 170);
+  background:linear-gradient(to bottom, rgb(9, 4, 170) 5%, rgb(9, 4, 170) 100%);
+	background-color:rgb(9, 4, 170);
+  box-shadow:inset 0px -3px 7px 0px rgb(9, 4, 170);
   color: white;
 }
 
