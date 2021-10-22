@@ -3,10 +3,8 @@ import "../Css/Header.css"
 
 
 const Header = ({setMenuOpen, menuOpen}) => {
-    console.log(menuOpen)
     const menuChange = (e) => {
         // e.preventDefault()
-        console.log('hi')
         setMenuOpen(true)
     }   
     

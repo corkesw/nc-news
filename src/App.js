@@ -26,7 +26,7 @@ function App() {
     <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     </div>
     <div className="appnav" >
-    <Nav/>
+    <Nav />
     </div>
     <div className="appmain">
     <Switch>

@@ -10,21 +10,26 @@ const Articles = () => {
   const { topic } = useParams();
   const [sortBy, setSortBy] = useState(null)
   const [order, setOrder] = useState(null)
-  const [page, setPage] = useState(1)
   const [totalArticles, setTotalArticles] = useState(null)
   const {on, loading, reset } = useLoading()
+  const [page, setPage] = useState(1)
   
-
+  console.log(page)
   useEffect(() => {
+
     loading(true)
     getArticles({topic, sortBy, order, page})
       .then((articlesFromApi) => {
         setArticles(articlesFromApi.articles);
         setTotalArticles(articlesFromApi.total_count)
         reset()
+        if (articlesFromApi.articles.length === 0) {
+          setPage(1)
+        }
       })
       .catch((err) => console.log(err));
   }, [topic, sortBy, order, page, loading]); //don't add reset!
+
 
   return (
     <>
