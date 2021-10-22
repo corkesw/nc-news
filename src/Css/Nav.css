@@ -6,9 +6,8 @@ nav {
     color: white
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0px;
+.list {
+    padding: 1px;
     margin: 0px;
 }
 
@@ -28,7 +27,8 @@ li {
 }
 
 .navlink:hover {
-    color: white;
+    color: #dc851f;
     text-decoration: none;
+    font-weight: 700;
 }
 

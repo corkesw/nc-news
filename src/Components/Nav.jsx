@@ -15,11 +15,11 @@ const Nav = () => {
     }, [])
 
     return (
-        <nav className="nav">
+        <nav className="navlist">
             <ul role='list'>
                 <Link to="/" className="navlink">home</Link>
                 {topics.map((topic) => {
-                    return <li role="listitem" className="navlink--item" key={topic.slug}><Link to={`/articles/${topic.slug}`} className="navlink"> {topic.slug} </Link></li>
+                    return <Link to={`/articles/${topic.slug}`} className="navlink"><li role="listitem" className="navlink--item" key={topic.slug}> {topic.slug} </li></Link>
                 })}
             </ul>
         </nav>
