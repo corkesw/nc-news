@@ -187,3 +187,20 @@ button:hover {
 	position:relative;
 	top:1px;
 } */
+
+button:disabled {
+  box-shadow:inset 0px -3px 7px 0px #7f8181;
+	background:linear-gradient(to bottom, #7f8181 5%, #d2d5d8 100%);
+	background-color:#363738;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#4b4a61;
+	font-family:Arial;
+	font-size:15px;
+	padding:2px;
+  margin: 0px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
