@@ -13,6 +13,7 @@ const Articles = () => {
   const [page, setPage] = useState(1)
   const [totalArticles, setTotalArticles] = useState(null)
   const {on, loading, reset } = useLoading()
+  
 
   useEffect(() => {
     loading(true)
@@ -37,6 +38,7 @@ const Articles = () => {
         </div>
       ) : null}
     <p className="sortby">Sort : 
+    
     <button className ={`sortauthor ${sortBy}`} type="button" onClick={ () => {
       setSortBy('author')
       setPage(1)

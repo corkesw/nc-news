@@ -115,12 +115,51 @@ div .comment {
   width: 50vw;
 }
 
-/* Comment.jsx */
 
 .deletedtrue {
   color: red;
 }
+/* AddArticle.jsx */
 
-.add__container {
+.article__form {
   display: grid;
+  grid-template-columns: 20vw 65vw;
+  grid-template-rows: 2rem 2rem 30rem;
+  grid-template-areas: 
+                  "topiclabel topicinput"
+                  "titlelabel titleinput"
+                  "articlelabel articleinput";
+}
+
+.topiclabel {
+  grid-area: topiclabel;
+  margin: 5px;
+}
+
+.topicinput {
+  grid-area: topicinput;
+  margin: 5px;
+}
+
+.input-with-hint {
+  height: 2rem;
+  width: 40vw;
+}
+.titlelabel {
+  grid-area: titlelabel;
+  margin: 5px;
+}
+
+.titleinput {
+  grid-area: titleinput;
+  width: 60vw;
+}
+.articlelabel {
+  grid-area: articlelabel;
+  margin: 5px;
+}
+
+.articleinput {
+  grid-area: articleinput;
+  width: 60vw;
 }

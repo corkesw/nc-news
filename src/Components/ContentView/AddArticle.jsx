@@ -6,7 +6,7 @@ import { getTopics } from "../../utils/api";
 
 function AddArticle() {
   const [hintData, setHintData] = useState([]);
-  const [text, setText] = useState("");
+  const [topicText, setTopicText] = useState("");
 
   useEffect(() => {
     getTopics().then((topicsFromApi) => {
@@ -22,16 +22,19 @@ function AddArticle() {
       <section className="article__div">
         <p className="article--title">Add article</p>
         <form className="article__form">
-          <label htmlFor="topic">Topic</label>
-          <Hint id="topic" options={hintData} allowTabFill>
+          <label class="topiclabel" htmlFor="topic">Topic</label>
+          <Hint class ="topicinput" id="topic" options={hintData} allowTabFill>
             <input
               className="input-with-hint"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
+              value={topicText}
+              onChange={(e) => setTopicText(e.target.value)}
             />
           </Hint>
-          <label htmlFor="title">Title</label>
-          <input id="title" type="text" />
+          <label className="titlelabel" htmlFor="title">Title</label>
+          <input className="titleinput" id="title" type="text" />
+          <label className="articlelabel" htmlFor="article">Article</label>
+          <textarea className="articleinput" id="article" type="text" />
+          
         </form>
       </section>
     </>
@@ -39,3 +42,5 @@ function AddArticle() {
 }
 
 export default AddArticle;
+
+
