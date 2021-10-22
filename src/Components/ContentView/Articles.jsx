@@ -75,11 +75,11 @@ const Articles = () => {
         articles.map((article) => {
           const date = new Date(article.created_at)
           return (
-            <div className="article__div" key={article.article_id}>
               <Link
                 className="article--link"
                 to={`/article/${article.article_id}`}
               >
+            <div className="article__div" key={article.article_id}>
                 <p className="article--title">{article.title}</p>
                 <p className="article--details">
                   Topic: {article.topic.toUpperCase()} Author: {article.author}{" "}
@@ -88,8 +88,8 @@ const Articles = () => {
                   Date posted: {`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`}
                   <span className='desktop'> Votes: {article.votes} Comments: {article.comment_count}</span>
                 </p>
-              </Link>
             </div>
+              </Link>
             
           
           );

@@ -11,6 +11,7 @@
   background-color: #fbfbfb;
   color: black;
   width: 85vw;
+  text-decoration: none;
 }
 
 .centre {
@@ -20,6 +21,7 @@
 p.article--title {
   font-size: large;
   font-weight: bold;
+  text-decoration: none;
 }
 
 p.article--details {
@@ -29,12 +31,19 @@ p.article--details {
 
 .article--link:link {
   text-decoration: none;
-  color: #094074;
+  color: green;
 }
 
 .article--link:visited {
   text-decoration: none;
-  color: black;
+  color: red;
+}
+
+
+
+.article--link .article__div:hover {
+  color:#dc851f;
+  background-color: #6a687a;
 }
 
 div .comment {
