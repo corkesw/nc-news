@@ -5,10 +5,23 @@
     justify-content: center;
 }
 
+p {
+    color: white
+}
+
 @media screen and (min-width:600px) {
     .login {
-        position: absolute;
-       
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .spacer {
+        width: 150px;
+        height: 200px;
+    }
+
+    .loginform {
+
     }
     
 }

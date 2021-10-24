@@ -22,7 +22,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <form onSubmit={handleLogin}>
+      <form className="loginform" onSubmit={handleLogin}>
         <label htmlFor="username" name="username"></label>
         <input
           onChange={(e) => {
@@ -39,6 +39,7 @@ const Login = () => {
         {err ? <p className="errormessage">{err}</p> : null}
         {user ? <p>You are logged in as {user}</p> : null}
       </form>
+      <span className="spacer"></span>
     </div>
   );
 };
