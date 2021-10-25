@@ -3,7 +3,7 @@ import {getTopics } from '../utils/api';
 import "../Css/Nav.css"
 import { Link } from 'react-router-dom';
 
-const Nav = ({}) => {
+const Nav = () => {
     const [topics, setTopics ] = useState([])
     const [err, setErr] = useState(null)
 
