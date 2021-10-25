@@ -6,9 +6,10 @@ nav {
     color: white
 }
 
-.list {
-    padding: 1px;
-    margin: 0px;
+.navlist {
+    padding: 2px;
+    margin: 1px;
+    list-style-type: none;
 }
 
 li {
@@ -19,16 +20,21 @@ li {
 .navlink {
     color: white;
     text-decoration: none;
+    padding: 1px;
+    margin: 1px;
 }
 
 .navlink:visited {
     color: white;
     text-decoration: none;
+    padding: 1px;
+    margin: 1px;
 }
 
 .navlink:hover {
     color: #dc851f;
     text-decoration: none;
     font-weight: 700;
+    padding: 1px;
+    margin: 1px;
 }
-
