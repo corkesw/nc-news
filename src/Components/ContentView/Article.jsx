@@ -5,8 +5,6 @@ import "../../Css/Articles.css";
 import Comments from "./Comments";
 import CommentAdd from "./CommentAdd";
 import { useLoading } from "../../hooks/useLoading";
-import { useContext } from "react";
-import { UserContext } from "../../Contexts/User";
 
 const Article = () => {
   const [article, setArticle] = useState([]); // selected article
@@ -19,8 +17,6 @@ const Article = () => {
   const { on, loading, reset } = useLoading();
   const [commentChange, setCommentChange] = useState(false); // update if comment added or deleted
   const commentAdded = useLoading();
-  const { user } = useContext(UserContext);
-
 
   useEffect(() => {
     loading(true);
