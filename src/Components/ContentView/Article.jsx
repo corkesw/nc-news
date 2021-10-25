@@ -5,8 +5,10 @@ import "../../Css/Articles.css";
 import Comments from "./Comments";
 import CommentAdd from "./CommentAdd";
 import { useLoading } from "../../hooks/useLoading";
+import { useContext } from "react";
+import { UserContext } from "../../Contexts/User";
 
-const Article = ({ user }) => {
+const Article = () => {
   const [article, setArticle] = useState([]); // selected article
   const { article_id } = useParams(); // selected article id
   const [votes, setVotes] = useState(); // votes for selected article
@@ -17,6 +19,8 @@ const Article = ({ user }) => {
   const { on, loading, reset } = useLoading();
   const [commentChange, setCommentChange] = useState(false); // update if comment added or deleted
   const commentAdded = useLoading();
+  const { user } = useContext(UserContext);
+
 
   useEffect(() => {
     loading(true);
@@ -107,7 +111,6 @@ const Article = ({ user }) => {
                 <p className="errormessage comment">{err}</p>
               </span> : null}
               <CommentAdd
-                user={user}
                 article_id={article_id}
                 addComment={addComment}
                 viewComments={viewComments}
@@ -119,7 +122,6 @@ const Article = ({ user }) => {
               />
 
               <Comments
-                user={user}
                 article_id={article_id}
                 setViewComments={setViewComments}
                 viewComments={viewComments}

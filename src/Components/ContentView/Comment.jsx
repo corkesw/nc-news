@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { deleteComment, incVote } from "../../utils/api";
+import { useContext } from "react";
+import { UserContext } from "../../Contexts/User";
 
 const Comment = ({
   setCommentChange,
   comment_id,
   votesPassed,
   setViewComments,
-  author,
-  user
+  author
 }) => {
   const [votes, setVotes] = useState(votesPassed);
   const [err, setErr] = useState(null);
   const [deletedTrue, setDeletedTrue] = useState(false);
+  const { user } = useContext(UserContext);
 
   const handleClick = () => {
     setVotes((currVotes) => currVotes + 1);
