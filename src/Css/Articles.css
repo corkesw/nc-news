@@ -165,7 +165,8 @@ button .order__button {
   grid-template-areas: 
                   "topiclabel topicinput"
                   "titlelabel titleinput"
-                  "articlelabel articleinput";
+                  "articlelabel articleinput"
+                  "addarticlespacer articlesubmit";
 }
 
 .topiclabel {
@@ -199,4 +200,17 @@ button .order__button {
 .articleinput {
   grid-area: articleinput;
   width: 60vw;
+}
+
+.addarticlespacer {
+  grid-area:addarticlespacer
+}
+
+.articlesubmit {
+  width: 60px;
+  grid-area:articlesubmit ;
+}
+
+.nologin {
+  text-decoration: none;
 }

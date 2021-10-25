@@ -52,3 +52,17 @@ export const getUsers = async (user) => {
 export const deleteComment = async (comment_id) => {
     await newsApi.delete(`/comments/${comment_id}`)
 }
+
+export const postArticle = async (author, topic, title, body) => {
+    const reqbody = {
+        author,
+        topic,
+        title,
+        body
+    }
+
+    console.log(reqbody)
+    const article = await newsApi.post(`/articles`, reqbody)
+    console.log(article)
+
+}
