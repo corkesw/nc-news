@@ -34,7 +34,7 @@ const Comments = ({
     <>
       {err && viewComments ? <p className="errormessage">{err}</p> : null}
 
-      {viewComments
+      {viewComments && comments.length > 0
         ? comments.map((comment) => {
             return (
               <div className="comment" key={comment.comment_id}>
@@ -58,7 +58,7 @@ const Comments = ({
               </div>
             );
           })
-        : null}
+        : <p className="article">No comments found. Be the first to comment!</p>}
     </>
   );
 };
