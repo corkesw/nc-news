@@ -111,7 +111,7 @@ function AddArticle() {
               }}
             />
             <span className="addarticlespacer"></span>
-            <button className="articlesubmit">Submit</button>
+            <button className="articlesubmit styledbutton">Submit</button>
             <span className="addarticlespacer2"></span>
             {err ? <p className="errormessage">{err}</p> : null}
             {addingArticle.on ? (

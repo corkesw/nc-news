@@ -53,6 +53,7 @@ const CommentAdd = ({ setAddComment, commentAdded, article_id, addComment, viewC
             }
           />
           <button
+          className="styledbutton" 
             onClick={(e) => {
               setNewCommentInput('')
               setCharactersLeftInForm(200)
@@ -61,6 +62,7 @@ const CommentAdd = ({ setAddComment, commentAdded, article_id, addComment, viewC
             }}
           >Clear</button>
           <button type="button"
+          className="styledbutton" 
               onClick={() => {
                 setAddComment(!addComment);
                 commentAdded.reset()
@@ -71,7 +73,7 @@ const CommentAdd = ({ setAddComment, commentAdded, article_id, addComment, viewC
             >
               Hide
             </button>
-          <button className="comment--submit">Submit</button>
+          <button className="comment--submit styledbutton">Submit</button>
           <span>
           {charactersLeftInForm <= 25 ? <span className="charsleft red">{charactersLeftInForm} characters left</span> : null}
           {charactersLeftInForm <= 50 && charactersLeftInForm >25 ? <span className="charsleft amber">{charactersLeftInForm} characters left</span> : null}

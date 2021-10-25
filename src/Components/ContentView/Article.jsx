@@ -79,22 +79,35 @@ const Article = () => {
                 }/${new Date(article.created_at).getFullYear()}`}
               </p>
               <p>{article.body}</p>
-              <button type="button" onClick={handleVoteClick}>
+              <button
+                className="styledbutton"
+                type="button"
+                onClick={handleVoteClick}
+              >
                 Votes: {votes}
               </button>
 
               {viewComments ? (
-                <button type="button" onClick={handleCommentClick}>
+                <button
+                  className="styledbutton"
+                  type="button"
+                  onClick={handleCommentClick}
+                >
                   Hide Comments
                 </button>
               ) : (
-                <button type="button" onClick={handleCommentClick}>
+                <button
+                  className="styledbutton"
+                  type="button"
+                  onClick={handleCommentClick}
+                >
                   Comments
                 </button>
               )}
 
               {!addComment ? (
                 <button
+                  className="styledbutton"
                   onClick={() => {
                     setAddComment(true);
                     commentAdded.reset();
@@ -103,9 +116,12 @@ const Article = () => {
                   Add comment
                 </button>
               ) : null}
-              {err ? <span><br />
-                <p className="errormessage comment">{err}</p>
-              </span> : null}
+              {err ? (
+                <span>
+                  <br />
+                  <p className="errormessage comment">{err}</p>
+                </span>
+              ) : null}
               <CommentAdd
                 article_id={article_id}
                 addComment={addComment}

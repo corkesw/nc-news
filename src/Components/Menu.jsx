@@ -22,7 +22,7 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
           <p className="logindetails">Logged in as</p>
           <p className="logindetails user"> {user}</p>
           <Link to="/add">
-            <button>Add article</button>
+            <button className="styledbutton" >Add article</button>
           </Link>
           <Link to="/login">
             <button
@@ -30,7 +30,7 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
                 handleLogout()
                 setMenuOpen(false)}
               }
-              className="logout"
+              className="logout styledbutton"
             >
               Logout
             </button>
@@ -38,7 +38,7 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
         </>
       ) : (
         <Link to="/login">
-          <button onClick={() => setMenuOpen(false)} className="logout">
+          <button className="styledbutton logout" onClick={() => setMenuOpen(false)}>
             Login
           </button>
         </Link>

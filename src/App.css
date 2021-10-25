@@ -163,7 +163,7 @@ body {
   
 }
 
-button {
+.styledbutton {
 	box-shadow:inset 0px -3px 7px 0px #29bbff;
 	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
 	background-color:#2dabf9;
@@ -172,14 +172,13 @@ button {
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
 	font-size:15px;
 	padding:2px;
   margin: 0px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #263666;
 }
-button:hover {
+.styledbutton:hover {
 	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
 	background-color:#0688fa;
 }
@@ -188,7 +187,7 @@ button:hover {
 	top:1px;
 } */
 
-button:disabled {
+.styledbutton:disabled {
   box-shadow:inset 0px -3px 7px 0px #7f8181;
 	background:linear-gradient(to bottom, #7f8181 5%, #d2d5d8 100%);
 	background-color:#363738;

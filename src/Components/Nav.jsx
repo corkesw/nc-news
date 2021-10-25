@@ -18,10 +18,10 @@ const Nav = () => {
     return (
         <nav className="navlist__container">
             {err? <p>{err}</p>: null}
-            <ul className="navlist" role='list'>
+            <ul className="navlist">
                 <Link to="/" className="navlink">home</Link>
                 {topics.map((topic) => {
-                    return <li role="listitem" className="navlink--item" key={topic.slug}><Link to={`/articles/${topic.slug}`} className="navlink"> {topic.slug} </Link></li>
+                    return <li className="navlink--item" key={topic.slug}><Link to={`/articles/${topic.slug}`} className="navlink"> {topic.slug} </Link></li>
                 })}
             </ul>
             {/* <span className="navspacer"></span> */}
