@@ -14,12 +14,12 @@ const Article = () => {
   const [loadErr, setLoadErr] = useState(false);
   const [viewComments, setViewComments] = useState(false); // toggle between comment view and change text on comment button : Comments / Hide comments
   const [addComment, setAddComment] = useState(false); //toggle comment box open/closed
-  const { on, loading, reset } = useLoading();
+  const loading = useLoading();
   const [commentChange, setCommentChange] = useState(false); // update if comment added or deleted
   const commentAdded = useLoading();
 
   useEffect(() => {
-    loading(true);
+    loading.on(true);
     setLoadErr(false);
     getArticle(article_id)
       .then((articleFromApi) => {
@@ -27,12 +27,12 @@ const Article = () => {
         articleFromApi.topic = topic;
         setArticle(articleFromApi);
         setVotes(articleFromApi.votes);
-        reset();
+        loading.reset();
       })
       .catch((error) => {
         if (error) {
           setLoadErr("Article not found");
-          reset();
+          loading.reset();
         }
       });
   }, [article_id, loading]); // don't add reset!
@@ -58,7 +58,7 @@ const Article = () => {
         <p className="errormessage errorcentre">Article not found</p>
       ) : (
         <>
-          {on ? (
+          {loading.on ? (
             <div className="spinner">
               <div className="lds-facebook">
                 <div></div>
