@@ -5,17 +5,19 @@ import { Link } from 'react-router-dom';
 
 const Nav = ({}) => {
     const [topics, setTopics ] = useState([])
-    
+    const [err, setErr] = useState(null)
+
     useEffect( () => {
         getTopics()
         .then((topicsFromApi) => {
             setTopics(topicsFromApi)
         })
-        // catch block!
+        .catch(error => setErr('Connection error!'))
     }, [])
 
     return (
         <nav className="navlist__container">
+            {err? <p>{err}</p>: null}
             <ul className="navlist" role='list'>
                 <Link to="/" className="navlink">home</Link>
                 {topics.map((topic) => {
