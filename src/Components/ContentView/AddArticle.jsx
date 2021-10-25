@@ -20,6 +20,8 @@ function AddArticle() {
   const addingArticle = useLoading();
   const articleAdded = useLoading();
 
+  console.log(err)
+
   const handleArticleSubmit = (e) => {
     articleAdded.reset();
     addingArticle.loading(true);
@@ -33,7 +35,15 @@ function AddArticle() {
         addingArticle.reset();
         articleAdded.loading(true);
       })
-      .catch((error) => setErr("Connection error, please try again later"));
+      .catch((error) => {
+        addingArticle.reset();
+        if (!hintData.includes(topicText.toLowerCase())) {
+          setErr('Whoops! Please choose an existing category')
+        } else {
+          setErr("Connection error, please try again later");
+        }
+        }
+      );
   };
 
   useEffect(() => {
@@ -49,52 +59,76 @@ function AddArticle() {
     <>
       <section className="article__div">
         <p className="article--title">Add article</p>
-        {user ?
-        <form className="article__form" onSubmit={handleArticleSubmit}>
-          <label className="topiclabel" htmlFor="topic">
-            Topic
-          </label>
-          <Hint
-            className="topicinput"
-            id="topic"
-            options={hintData}
-            allowTabFill
-          >
+        {user ? (
+          <form className="article__form" onSubmit={handleArticleSubmit}>
+            <label className="topiclabel" htmlFor="topic">
+              Topic
+            </label>
+            <Hint
+              className="topicinput"
+              id="topic"
+              options={hintData}
+              allowTabFill
+            >
+              <input
+                required
+                className="input-with-hint"
+                value={topicText}
+                onChange={(e) => {
+                  setTopicText(e.target.value);
+                  setErr(null);
+                  articleAdded.reset();
+                }}
+              />
+            </Hint>
+            <label className="titlelabel" htmlFor="title">
+              Title
+            </label>
             <input
               required
-              className="input-with-hint"
-              value={topicText}
-              onChange={(e) => setTopicText(e.target.value)}
+              className="titleinput"
+              id="title"
+              type="text"
+              value={titleText}
+              onChange={(e) => {
+                setTitleText(e.target.value);
+                setErr(null);
+                articleAdded.reset();
+              }}
             />
-          </Hint>
-          <label className="titlelabel" htmlFor="title">
-            Title
-          </label>
-          <input
-            required
-            className="titleinput"
-            id="title"
-            type="text"
-            value={titleText}
-            onChange={(e) => setTitleText(e.target.value)}
-          />
-          <label className="articlelabel" htmlFor="article">
-            Article
-          </label>
-          <textarea
-            required
-            className="articleinput"
-            id="article"
-            type="text"
-            value={bodyText}
-            onChange={(e) => setBodyText(e.target.value)}
-          />
-          <span className="addarticlespacer"></span>
-          <button className="articlesubmit">Submit</button>
-        </form>
-        : 
-        <p className="nologin">Please <Link className="nologin"to="/login">login</Link> to add an article</p>
-        }
+            <label className="articlelabel" htmlFor="article">
+              Article
+            </label>
+            <textarea
+              required
+              className="articleinput"
+              id="article"
+              type="text"
+              value={bodyText}
+              onChange={(e) => {
+                setErr(null)
+                articleAdded.reset()
+                setBodyText(e.target.value)
+              }}
+            />
+            <span className="addarticlespacer"></span>
+            <button className="articlesubmit">Submit</button>
+            <span className="addarticlespacer2"></span>
+            {err ? <p className="errormessage">{err}</p> : null}
+            {addingArticle.on ? (
+              <p className="uploading">Uploading...</p>
+            ) : null}
+            {articleAdded.on ? <p className="success">Success!</p> : null}
+          </form>
+        ) : (
+          <p className="nologin">
+            Please{" "}
+            <Link className="nologin" to="/login">
+              login
+            </Link>{" "}
+            to add an article
+          </p>
+        )}
       </section>
     </>
   );

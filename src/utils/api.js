@@ -54,6 +54,7 @@ export const deleteComment = async (comment_id) => {
 }
 
 export const postArticle = async (author, topic, title, body) => {
+    topic = topic.toLowerCase()
     const reqbody = {
         author,
         topic,
