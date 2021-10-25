@@ -13,9 +13,10 @@ const Articles = () => {
   const [totalArticles, setTotalArticles] = useState(null)
   const {on, loading, reset } = useLoading()
   const [page, setPage] = useState(1)
+  const [err, setErr] = useState(null)
   
   useEffect(() => {
-
+    setErr(false)
     loading(true)
     getArticles({topic, sortBy, order, page})
       .then((articlesFromApi) => {
@@ -26,13 +27,13 @@ const Articles = () => {
           setPage(1)
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setErr('Connection error!'));
   }, [topic, sortBy, order, page, loading]); //don't add reset!
 
 
   return (
     <>
-    {on ? (
+    {on && !err? (
         <div className="spinner articlespinner">
           <div className="lds-facebook">
             <div></div>
@@ -41,6 +42,7 @@ const Articles = () => {
           </div>
         </div>
       ) : null}
+      {err ? <p className="errormessage errorcentre">{err}</p> : null}
     <p className="sortby">Sort : 
     
     <button className ={`sortauthor ${sortBy}`} type="button" onClick={ () => {
