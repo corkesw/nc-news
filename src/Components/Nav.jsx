@@ -21,7 +21,7 @@ const Nav = () => {
             <ul className="navlist" role='list'>
                 <Link to="/" className="navlink">home</Link>
                 {topics.map((topic) => {
-                    return <Link to={`/articles/${topic.slug}`} className="navlink" key={topic.slug}><li role="listitem" className="navlink--item" > {topic.slug} </li></Link>
+                    return <li role="listitem" className="navlink--item" key={topic.slug}><Link to={`/articles/${topic.slug}`} className="navlink"> {topic.slug} </Link></li>
                 })}
             </ul>
             {/* <span className="navspacer"></span> */}
