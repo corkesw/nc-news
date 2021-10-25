@@ -144,14 +144,14 @@ const Articles = () => {
                 key={article.article_id}
               >
                 <div className="article__div">
-                  <p className="article--title">{article.title}</p>
+                  <p className={`article--title ${article.topic}`}>{article.title}</p>
                   <p className="article--details">
                     Topic: {article.topic.toUpperCase()} Author:{" "}
                     {article.author}{" "}
                   </p>
                   <p className="article--details">
                     Date posted:{" "}
-                    {`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`}
+                    {`${date.getDate()}/${date.getMonth() +1}/${date.getFullYear()}`}
                     <span className="desktop">
                       {" "}
                       Votes: {article.votes} Comments: {article.comment_count}

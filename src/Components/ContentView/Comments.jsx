@@ -58,7 +58,8 @@ const Comments = ({
               </div>
             );
           })
-        : <p className="article">No comments found. Be the first to comment!</p>}
+        : null}
+        {viewComments && comments.length === 0 ? <p className="article">No comments found. Be the first to comment!</p> : null}
     </>
   );
 };

@@ -6,8 +6,8 @@
 .article__div {
   border: 2px solid black;
   border-radius: 10px;
-  padding: 5px;
-  margin: 5px auto;
+  padding: 3px;
+  margin: 4px auto;
   background-color: #fbfbfb;
   color: black;
   width: 85vw;
@@ -22,7 +22,21 @@ p.article--title {
   font-size: large;
   font-weight: bold;
   text-decoration: none;
+  padding: 5px 0px;
+  margin: 2px auto;
 }
+
+/* .cooking {
+  background-color: rgb(241, 255, 241);
+}
+
+.coding {
+  background-color: rgb(232, 239, 241);
+}
+
+.football {
+  background-color: rgb(248, 231, 234);
+} */
 
 p.article--details {
   font-size: small;
@@ -65,6 +79,8 @@ div .comment {
   position: relative;
   left: 0px;
 }
+
+
 
 .charsleft {
   margin-left: 5px;
