@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Hint } from "react-autocomplete-hint";
 import "../../Css/Articles.css";
 import { getTopics } from "../../utils/api";
