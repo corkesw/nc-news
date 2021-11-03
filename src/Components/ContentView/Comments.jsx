@@ -28,7 +28,7 @@ const Comments = ({
         });
         setErr("Something went wrong, please try again later");
       });
-  }, [commentChange]);
+  }, [commentChange, setCommentChange, article_id, setViewComments]);
 
   return (
     <>

@@ -3,7 +3,6 @@ import { getArticles } from "../../utils/api";
 import "../../Css/Articles.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
-import { useLoading } from "../../hooks/useLoading";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -11,28 +10,31 @@ const Articles = () => {
   const [sortBy, setSortBy] = useState("created_at");
   const [order, setOrder] = useState("asc");
   const [totalArticles, setTotalArticles] = useState(null);
-  const { on, loading, reset } = useLoading();
   const [page, setPage] = useState(1);
   const [err, setErr] = useState(null);
+  const [loading, setLoading] = useState();
 
   useEffect(() => {
     setErr(false);
-    loading(true);
+    setLoading(true);
     getArticles({ topic, sortBy, order, page })
       .then((articlesFromApi) => {
         setArticles(articlesFromApi.articles);
         setTotalArticles(articlesFromApi.total_count);
-        reset();
+        setLoading(false);
         if (articlesFromApi.articles.length === 0) {
           setPage(1);
         }
       })
-      .catch((err) => setErr("Connection error!"));
-  }, [topic, sortBy, order, page, loading]); //don't add reset!
+      .catch((err) => {
+        setErr("Connection error!");
+        setLoading(false);
+      });
+  }, [topic, sortBy, order, page]); 
 
   return (
     <>
-      {on && !err ? (
+      {loading && !err ? (
         <div className="spinner articlespinner">
           <div className="lds-facebook">
             <div></div>
@@ -144,14 +146,18 @@ const Articles = () => {
                 key={article.article_id}
               >
                 <div className="article__div">
-                  <p className={`article--title ${article.topic}`}>{article.title}</p>
+                  <p className={`article--title ${article.topic}`}>
+                    {article.title}
+                  </p>
                   <p className="article--details">
                     Topic: {article.topic.toUpperCase()} Author:{" "}
                     {article.author}{" "}
                   </p>
                   <p className="article--details">
                     Date posted:{" "}
-                    {`${date.getDate()}/${date.getMonth() +1}/${date.getFullYear()}`}
+                    {`${date.getDate()}/${
+                      date.getMonth() + 1
+                    }/${date.getFullYear()}`}
                     <span className="desktop">
                       {" "}
                       Votes: {article.votes} Comments: {article.comment_count}

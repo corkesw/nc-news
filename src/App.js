@@ -14,16 +14,15 @@ import AddArticle from './Components/ContentView/AddArticle';
 function App() {
 
   const [user, setUser] = useState(localStorage.loggedInUser)
-  const [menuOpen, setMenuOpen] = useState(false)
   
   return (
     <UserContext.Provider value={{user, setUser}}>
     <div className="applayout">
       <div className="appheader" >
-    <Header setMenuOpen={setMenuOpen} menuOpen={menuOpen}/>
+    <Header />
       </div>
       <div className="appmenu">
-    <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+    <Menu />
     </div>
     <div className="appnav" >
     <Nav />
