@@ -9,12 +9,17 @@ const Header = ({ setMenuOpen, menuOpen }) => {
   
   return (
     <header className="header">
+        <span></span>
+        <span></span>
+        <span></span>
       {user ? (
-        <Link to="/login"><button className="styledbutton" onClick={()=> {setUser(null)}}>Logout</button></Link>
+        <Link to="/login"><button className="styledbutton headerbutton" onClick={()=> {setUser(null)}}>Logout</button></Link>
       ) : (
-      <Link to="/login"><button className="styledbutton">Login</button></Link>
+      <Link to="/login"><button className="styledbutton headerbutton">Login</button></Link>
       )}
       <h1 className="title">NC NEWS!</h1>
+      {user ? <Link to="/add"><button className="styledbutton headerbutton">Add article</button></Link> : null
+}
     </header>
   );
 };
