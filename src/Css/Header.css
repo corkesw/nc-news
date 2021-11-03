@@ -1,26 +1,23 @@
-header {
+.header {
     /* background-color: #094074; */
     padding: 0px;
     margin: 0px;
     text-align: center;
     position: relative;
     color: #fbfbfb;
+    display: grid;
+    grid-template-columns: 25vw 50vw 25vw;
+    grid-template-rows: 15px 30px 15px;
 }
 
-.burger {
-    display: inline-block;
-    position: absolute;
-    top: 30px;
-    left: 20px;
+.headerbutton {
+    justify-content: center;
+    vertical-align: baseline;
+    margin-top: 5px;
 }
 
 .title {
-    display: inline-block;
+    padding: 0px;
+    margin: 0px
 }
 
-@media screen and (min-width: 600px){
-
-.vanish {
-    display: none;
-  }
-}
